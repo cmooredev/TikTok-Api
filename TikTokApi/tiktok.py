@@ -254,6 +254,10 @@ class TikTokApi:
             self.browser = await self.playwright.firefox.launch(
                 headless=headless, args=override_browser_args, proxy=random_choice(proxies), executable_path=executable_path
             )
+        elif browser == "webkit":
+            self.browser = await self.playwright.webkit.launch(
+                headless=headless, args=override_browser_args, proxy=random_choice(proxies), executable_path=executable_path
+            )
         else:
             raise ValueError("Invalid browser argument passed")
 
